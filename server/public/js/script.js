@@ -1,26 +1,16 @@
 $(document).ready(function(){
-
     //Login
     $("#login").click(function(){
-        var user = $('#userid').val();
-        var password = $('#password').val();
-        if(user =='' || password==''){
-          alert("Please Fillup all Inputs")
-            location.reload();
-        }else{
-          alert('Login');
+      var user = $('#users option:selected').val();
           $.ajax({
-            url:'/login',
-            method:'POST',
+            url:'/user',
+            method:'get',
             data:{
               user : user,
-              password:password
-            },
-            success:function(data){
-              console.log(data);
+              //password:password
             }
           })
-        }
+        //}
         
         // else if(user=='admin' && password=='admin@123'){
         //   window.location.replace("http://localhost:4000/admin");

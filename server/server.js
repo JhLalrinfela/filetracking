@@ -9,6 +9,7 @@ const home = require("./routes/home");
 const scheduler = require("./routes/scheduler");
 const admin = require("./routes/admin");
 const login = require("./routes/login");
+const user = require("./routes/user");
 
 //view engine
 app.set("views",path.join(__dirname,"views"));
@@ -28,6 +29,7 @@ app.use("/",home);
 app.use("/",scheduler);
 app.use("/",admin);
 app.use("/",login);
+app.use("/",user)
 
 
 

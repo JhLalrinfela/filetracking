@@ -4,7 +4,7 @@ var database = require("../database");
 
 
 router.get("/scheduler",(req,res)=>{
-    query = `select * from pending`;
+    query = `select * from pending order by category desc`;
     database.query(query,(error,data)=>{
         if(error) throw error
         res.render("scheduler",{

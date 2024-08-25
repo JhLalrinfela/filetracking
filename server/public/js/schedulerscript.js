@@ -3,7 +3,7 @@ $(document).ready(function(){
       var subject = $('#subject').val();
       var person = $('#person option:selected').val();
       var type = $("#type").val();
-      var category = $("#type").val();
+      var category = $("#category").val();
       $.ajax({
         url:'/insertintopending',
         method :"POST",

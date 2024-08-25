@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 const con = require("../database");
-const { error } = require("jquery");
 
 router.get("/admin",async(req,res)=>{
       query = `select slno,subject,assign_person,type,category,add_date,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
