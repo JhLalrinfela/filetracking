@@ -1,16 +1,16 @@
 const mysql = require("mysql");
-    const con = mysql.createConnection({
-        connectionLimit :10,
-        host:"localhost",
-        database:"filetracking",
-        user:"root",
-        password:"Mysqlpass@1"
-    })
+const con = mysql.createConnection({
+  connectionLimit: 10,
+  host: "localhost",
+  database: "filetracking",
+  user: "root",
+  password: "Mysqlpass@1",
+  multipleStatements: true,cd
+});
 
-    con.connect(function(e){
-        if(e) throw e;
-        console.log("Mysql Database is connected Successfully");
+con.connect(function (e) {
+  if (e) throw e;
+  console.log("Mysql Database is connected Successfully");
 });
 
 module.exports = con;
-

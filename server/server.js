@@ -8,7 +8,6 @@ const app = express();
 const home = require("./routes/home");
 const scheduler = require("./routes/scheduler");
 const admin = require("./routes/admin");
-const login = require("./routes/login");
 const user = require("./routes/user");
 
 //view engine
@@ -28,7 +27,6 @@ app.use(cors());
 app.use("/",home);
 app.use("/",scheduler);
 app.use("/",admin);
-app.use("/",login);
 app.use("/",user)
 
 
