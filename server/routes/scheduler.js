@@ -4,12 +4,12 @@ var database = require("../database");
 
 
 router.get("/scheduler",(req,res)=>{
-    query = `select * from pending order by category desc`;
+    query = `select uname from user limit 20 offset 2`;
     database.query(query,(error,data)=>{
         if(error) throw error
         res.render("scheduler",{
             title:"scheduler",
-            pendingData:data,
+            uname:data,
         })
     })
 })
