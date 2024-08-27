@@ -5,7 +5,7 @@ const con = mysql.createConnection({
   database: "filetracking",
   user: "root",
   password: "Mysqlpass@1",
-  multipleStatements: true,cd
+  multipleStatements: true,
 });
 
 con.connect(function (e) {
