@@ -13,7 +13,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/userscript.js"></script>
+    <script src="js/homescript.js"></script>
   </head>
   <body>
     <div class="container">
@@ -32,28 +32,14 @@
                   <th>Changtu</th>
                 </tr>
               </thead>
-              <tbody>
-                <% if(sampleData.length > 0) { sampleData.forEach(function(data)
-                { %>
-                <tr>
-                  <td><%= data.file_no %></td>
-                  <td><%= data.file_name %></td>
-                  <td><%= data.name %></td>
-                </tr>
-                <% }); } else { %>
-                <tr>
-                  <td>No Data Found</td>
-                </tr>
-                <% } %>
-              </tbody>
             </table>
           </div>
         </div>
         <div class="col-md-3">
-          <form id="userlogin" action="/login" id="login">
+          <form id="userlogin">
             <h2 class="m-3">User Login</h2>
             <div class="form-group mb-4">
-              <select class="form-select" id="users" name="user" required>
+              <select class="form-select" id="users" id="username" required>
                 <option value="0" disabled selected>Select User</option>
                 <% if(uname.length > 0) { uname.forEach(function(data) { %>
                 <option value="<%= data.uname %>"><%= data.uname %></option>
@@ -69,8 +55,49 @@
                 name="password"
               />
             </div>
-            <button type="submit" class="btn btn-primary mb-4">Submit</button>
+            <button type="button" id="login" class="btn btn-primary mb-4">Submit</button>
+            <a  href="#" data-bs-toggle="modal" data-bs-target="#myModal" class="signup">SignUp</a>
           </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">User SignUp</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form>
+              <div class="form-group mb-4">
+                <input
+                type="text"
+                class="form-control"
+                id="uname"
+                placeholder="Enter User of Your Choice"
+              />
+              </div>
+              <div class="form-group mb-4">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="upass"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="button" class="btn btn-primary mb-4" data-bs-dismiss="modal" id="signup">Submit</button>
+            </form>
+          </div>
+    
         </div>
       </div>
     </div>
