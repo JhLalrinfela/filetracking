@@ -9,7 +9,8 @@ const home = require("./routes/home");
 const scheduler = require("./routes/scheduler");
 const admin = require("./routes/admin");
 const user = require("./routes/user");
-const login = require("./routes/login")
+const login = require("./routes/login");
+const update = require("./routes/update");
 
 //view engine
 app.set("views", path.join(__dirname, "views"));
@@ -38,7 +39,8 @@ app.use("/", home);
 app.use("/", scheduler);
 app.use("/", admin);
 app.use("/", user);
-app.use("/",login)
+app.use("/", login);
+app.use("/", update);
 
 app.listen(4000, () => {
   console.log("Connect to backend");

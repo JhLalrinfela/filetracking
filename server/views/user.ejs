@@ -17,16 +17,13 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand p-2" href="#">E-LetterMovement</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
+        <a class="navbar-brand p-2 me-auto" href="#"
+        >I-eFiS
+        <p>(Irrigation Electronics Filing System)</p></a>
+        <form class="d-flex" style="margin-right:10px;" action="/logout">
+          <button class="btn btn-primary" type="submit">Logout</button>
+        </form>
+  </nav>
 
       <div class="row mt-5">
         <div class="col-md-12" id="secondrow">
@@ -39,6 +36,10 @@
                   <th>Type</th>
                   <th>Category</th>
                   <th>Enter Date</th>
+                  <th>Reason For Pending</th>
+                  <th>Pending Hours</th>
+                  <th>Update</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -49,6 +50,12 @@
                   <td><%= data.type %></td>
                   <td><%= data.category %></td>
                   <td><%= data.add_date %></td>
+                  <td><%= data.reason %></td>
+                  <td><%= data.pending_hour %></td>
+                  <td>
+                    <a href="/update/<%= data.slno %>" class="btn btn-success btn-sm">Update</a>
+                    <a href="/putup/<%= data.slno %>" class="btn btn-success btn-sm">PutUp</a>
+                </td>
                 </tr>
                 <% }); } else { %> 
                 <tr>

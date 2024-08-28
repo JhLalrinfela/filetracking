@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/scheduler.css" rel="stylesheet" />
+    <link href="css/update.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/schedulerscript.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand p-2 me-auto" href="#"
+          >I-eFiS
+          <p>(Irrigation Electronics Filing System)</p></a
+        >
+      </nav>
+
+      <div class="row mt-5">
+        <% if(data.length > 0) { data.forEach(function(data) { %>
+        <div class="col-md-3"></div>
+        <div class="col-md-6" id="update">
+          <h3>Put Up</h3>
+          <form method="POST" action="/complete">
+            <div class="form-group mb-3">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                aria-describedby="emailHelp"
+                value="<%= data.subject  %>"
+                disabled
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="assign_person">Put Up By</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                aria-describedby="emailHelp"
+                value="<%= data.assign_person  %>"
+                disabled
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="assign_person">Type</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                aria-describedby="emailHelp"
+                value="<%= data.type  %>"
+                disabled
+              />
+            </div>
+
+            <div class="form-group mb-3">
+                <select class="form-select" name="username" id="person" required>
+                <select class="form-select" id="person">
+                    <option value="0" disabled selected>Putup To</option>
+                    <option value="K. Hamlet">Sr. EE(Works) - Engg K Hamlet</option>
+                    <option value="Lalnunthara(Lana)">EE(S&I) - Pu P. Lalnunthara</option>
+                    <option value ="Vanlalpekhlua Sailo">Sr. AE(Works) - Pu Vanlalpekhlua Sailo</option>
+                </select>
+              </div>
+            <button type="submit" class="btn btn-primary">PutUp</button>
+          </form>
+        </div>
+        <div class="col-md-3"></div>
+
+        <% }); } %>
+      </div>
+    </div>
+  </body>
+</html>
