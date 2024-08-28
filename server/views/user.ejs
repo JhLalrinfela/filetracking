@@ -53,8 +53,8 @@
                   <td><%= data.reason %></td>
                   <td><%= data.pending_hour %></td>
                   <td>
-                    <a href="/update/<%= data.slno %>" class="btn btn-success btn-sm">Update</a>
-                    <a href="/putup/<%= data.slno %>" class="btn btn-success btn-sm">PutUp</a>
+                    <a href="/update?slno=<%= data.slno %>" class="btn btn-success btn-sm">Update</a>
+                    <a href="/putup?slno=<%= data.slno %>" class="btn btn-success btn-sm">PutUp</a>
                 </td>
                 </tr>
                 <% }); } else { %> 

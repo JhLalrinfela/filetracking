@@ -10,11 +10,10 @@
     />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/scheduler.css" rel="stylesheet" />
-    <link href="css/update.css" rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="js/schedulerscript.js"></script>
+    <script src="js/updatescript.js"></script>
   </head>
   <body>
     <div class="container">
@@ -28,8 +27,8 @@
       <div class="row mt-5">
         <% if(data.length > 0) { data.forEach(function(data) { %>
         <div class="col-md-3"></div>
-        <div class="col-md-6" id="update">
-          <form method="POST" action="/update_pending">
+        <div class="col-md-6">
+          <form>
             <h3 class="mb-3 text-danger">Update Reason of Pending</h3>
             <div class="form-group mb-3">
               <label for="assign_person">Assign Person</label>
@@ -37,7 +36,7 @@
                 type="text"
                 class="form-control mt-2"
                 value="<%= data.assign_person  %>"
-                name="username"
+                id="username"
                 disabled
               />
             </div>
@@ -53,7 +52,7 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary" id="updatebutton">Update</button>
             <a
               href="/user?uname=<%= data.assign_person %>"
               type="button"
