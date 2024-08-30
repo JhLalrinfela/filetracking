@@ -10,7 +10,7 @@
     />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/home.css" rel="stylesheet" />
-
+    <link rel="icon" type="image/x-icon" href="/images/title.png" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/homescript.js"></script>
@@ -24,8 +24,11 @@
           <p>(Irrigation Electronics Filing System)</p></a
         >
       </nav>
-      <div class="row mt-4">
-        <div class="col-md-9" id="secondrow">
+
+      <div class="row mt-4" id="secondrow">
+        <!-- fist column -->
+        <div class="col-md-9">
+          <!-- first -->
           <div class="row">
             <div class="col-md-6">
               <div class="card mb-3">
@@ -75,6 +78,7 @@
             </div>
           </div>
 
+          <!-- sedond -->
           <div class="row">
             <div class="col-md-6">
               <div class="card mb-3">
@@ -100,7 +104,27 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Pending Files Nei te</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Subject</th>
+                      <th>Changtu</th>
+                      <th>Pending Hours</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pendingfileneite"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- first column end -->
+        <!-- Second column -->
         <div class="col-md-3">
           <form id="userlogin" action="/login" method="POST">
             <h2 class="m-3">User Login</h2>

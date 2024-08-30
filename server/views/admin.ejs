@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/scheduler.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -52,8 +53,9 @@
                   <th>Type</th>
                   <th>Category</th>
                   <th>Enter Date</th>
-                  <th>Lapsed Hours</th>
-                  <th>Task</th>
+                  <th>Pending Hours</th>
+                  <th>Reason</th>
+                  <th>Assigner</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,20 +64,18 @@
                 <tr>
                   <td><%= data.subject %></td>
                   <td><%= data.assign_person %></td>
-                  <tdgg><%= data.type %></td>
+                  <td><%= data.type %></td>
                   <td><%= data.category %></td>
                   <td><%= data.add_date %></td>
                   <td><%= data.pending_hour %></td>
+                  <td><%= data.reson %></td>
                   <td>
-                      <a href="/delete/<%= data.slno %>" class="btn btn-primary btn-sm">Done</a>
-                      <a href="/update/<%= data.slno %>" class="btn btn-success btn-sm">Update</a>
-
-
+                      <a href="/newassigner?slno=<%= data.slno %>" class="btn btn-success btn-sm">New</a>
                   </td>
                 </tr>
                 <% }); } else { %>
                 <tr>
-                  <td>No Data Found</td>
+                  <td>No Pending File as of Today</td>
                 </tr>
                 <% } %>
               </tbody>
@@ -89,10 +89,13 @@
                     <tr>
                       <th>Slno</th>
                       <th>Subject</th>
+                      <th>Putup Tu</th>
                       <th>Type</th>
                       <th>Category</th>
-                      <th>PutUp On</th>
-                      <th>Putup By</th>
+                      <th>PutUp Ni</th>
+                      <th>PutUp Na</th>
+                      <th>Eng File ah nge</th>
+
 
                     </tr>
                   </thead>

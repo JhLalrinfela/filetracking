@@ -13,17 +13,7 @@ router.get("/admin", async (req, res) => {
   });
 });
 
-router.get("/delete/:id", function (req, res, next) {
-  var id = req.params.id;
-  query = `insert into complete(subject,assign_person,type,category,putup_date) select subject,assign_person,type,category,NOW() from pending where slno=?`;
-  con.query(query, [id]);
-  q = `delete from pending where slno=?`;
-  con.query(q, [id]);
-  res.redirect("/admin");
-});
-
 router.get("/complete", async (req, res) => {
-  //var name = req.body.name;
   q = `select * from complete`;
   con.query(q, (error, data) => {
     if (error) throw error;

@@ -45,4 +45,12 @@ router.get("/cardthree", (req, res) => {
   });
 });
 
+router.get("/pendingfileneite", async (req, res) => {
+  query = `select slno,subject,assign_person,type,category,add_date,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
+  con.query(query, (error, data) => {
+    if (error) throw error;
+    res.send(data);
+  });
+});
+
 module.exports = router;

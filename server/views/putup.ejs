@@ -28,9 +28,21 @@
       <div class="row mt-5">
         <% if(data.length > 0) { data.forEach(function(data) { %>
         <div class="col-md-3"></div>
-        <div class="col-md-6" id="update">
+        <div class="col-md-6">
           <h3>Put Up</h3>
           <form method="POST" action="/complete">
+            <div class="form-group mb-3">
+              <label for="slno">Slno</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                aria-describedby="emailHelp"
+                value="<%= data.slno  %>"
+                name="slno"
+                readonly="readonly"
+              />
+            </div>
+
             <div class="form-group mb-3">
               <label for="subject">Subject</label>
               <input
@@ -38,7 +50,8 @@
                 class="form-control mt-2"
                 aria-describedby="emailHelp"
                 value="<%= data.subject  %>"
-                disabled
+                name="subject"
+                readonly="readonly"
               />
             </div>
 
@@ -49,30 +62,60 @@
                 class="form-control mt-2"
                 aria-describedby="emailHelp"
                 value="<%= data.assign_person  %>"
-                disabled
+                name="person"
+                readonly="readonly"
               />
             </div>
 
             <div class="form-group mb-3">
-              <label for="assign_person">Type</label>
+              <label for="type">Type</label>
               <input
                 type="text"
                 class="form-control mt-2"
                 aria-describedby="emailHelp"
                 value="<%= data.type  %>"
-                disabled
+                name="type"
+                readonly="readonly"
               />
             </div>
 
             <div class="form-group mb-3">
-                <select class="form-select" name="username" id="person" required>
-                <select class="form-select" id="person">
-                    <option value="0" disabled selected>Putup To</option>
-                    <option value="K. Hamlet">Sr. EE(Works) - Engg K Hamlet</option>
-                    <option value="Lalnunthara(Lana)">EE(S&I) - Pu P. Lalnunthara</option>
-                    <option value ="Vanlalpekhlua Sailo">Sr. AE(Works) - Pu Vanlalpekhlua Sailo</option>
-                </select>
-              </div>
+              <label for="category">Category</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                value="<%= data.category  %>"
+                name="category"
+                readonly="readonly"
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="officers">Put Up to</label>
+              <select class="form-select mt-2" name="officers" required>
+                <option value="0" disabled selected>Select Officers</option>
+                <option value="K. Hamlet">Sr. EE(Works) - Engg K Hamlet</option>
+                <option value="Lalnunthara(Lana)">
+                  EE(S&I) - Pu P. Lalnunthara
+                </option>
+                <option value="Vanlalpekhlua Sailo">
+                  Sr. AE(Works) - Pu Vanlalpekhlua Sailo
+                </option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="file">File Hming</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                aria-describedby="emailHelp"
+                name="filename"
+                placeholder="Eng File ah nge i Putup Dawn"
+                required
+              />
+            </div>
             <button type="submit" class="btn btn-primary">PutUp</button>
           </form>
         </div>

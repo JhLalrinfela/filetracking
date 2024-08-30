@@ -11,6 +11,8 @@ const admin = require("./routes/admin");
 const user = require("./routes/user");
 const login = require("./routes/login");
 const update = require("./routes/update");
+const putup = require("./routes/putup");
+const newassigner = require("./routes/newassigner");
 
 //view engine
 app.set("views", path.join(__dirname, "views"));
@@ -41,6 +43,8 @@ app.use("/", admin);
 app.use("/", user);
 app.use("/", login);
 app.use("/", update);
+app.use("/", putup);
+app.use("/", newassigner);
 
 app.listen(4000, () => {
   console.log("Connect to backend");

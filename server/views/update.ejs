@@ -28,16 +28,26 @@
         <% if(data.length > 0) { data.forEach(function(data) { %>
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <form>
+          <form method="POST" action="/update_pending">
             <h3 class="mb-3 text-danger">Update Reason of Pending</h3>
+            <div class="form-group mb-3">
+              <label for="assign_person">Slno</label>
+              <input
+                type="text"
+                class="form-control mt-2"
+                value="<%= data.slno  %>"
+                name="slno"
+                readonly="readonly"
+              />
+            </div>
             <div class="form-group mb-3">
               <label for="assign_person">Assign Person</label>
               <input
                 type="text"
                 class="form-control mt-2"
                 value="<%= data.assign_person  %>"
-                id="username"
-                disabled
+                name="username"
+                readonly="readonly"
               />
             </div>
 
@@ -46,13 +56,12 @@
               <textarea
                 class="form-control mt-2"
                 rows="2"
-                id="reason"
                 name="reason"
                 placeholder="Reason for Pending"
               ></textarea>
             </div>
 
-            <button type="button" class="btn btn-primary" id="updatebutton">Update</button>
+            <button type="submit" class="btn btn-primary">Update</button>
             <a
               href="/user?uname=<%= data.assign_person %>"
               type="button"
