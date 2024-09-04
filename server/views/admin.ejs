@@ -54,7 +54,7 @@
                   <th>Category</th>
                   <th>Enter Date</th>
                   <th>Pending Hours</th>
-                  <th>Reason</th>
+                  <th>Pending Reason</th>
                   <th>Assigner</th>
                 </tr>
               </thead>
@@ -68,9 +68,9 @@
                   <td><%= data.category %></td>
                   <td><%= data.add_date %></td>
                   <td><%= data.pending_hour %></td>
-                  <td><%= data.reson %></td>
+                  <td><%= data.reason %></td>
                   <td>
-                      <a href="/newassigner?slno=<%= data.slno %>" class="btn btn-success btn-sm">New</a>
+                      <a href="/assign_new?slno=<%= data.slno %>" class="btn btn-success btn-sm">New</a>
                   </td>
                 </tr>
                 <% }); } else { %>
@@ -95,6 +95,7 @@
                       <th>PutUp Ni</th>
                       <th>PutUp Na</th>
                       <th>Eng File ah nge</th>
+                      <th>Remarks</th>
 
 
                     </tr>

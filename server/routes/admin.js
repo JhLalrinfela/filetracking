@@ -3,7 +3,7 @@ var router = express.Router();
 const con = require("../database");
 
 router.get("/admin", async (req, res) => {
-  query = `select slno,subject,assign_person,type,category,add_date,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
+  query = `select slno,subject,assign_person,type,category,add_date,reason,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
   con.query(query, (error, data) => {
     if (error) throw error;
     res.render("admin", {

@@ -34,8 +34,11 @@ $(document).ready(function () {
                             <td>` +
             result.officers +
             `</td>
-                            <td>` +
+            <td>` +
             result.filename +
+            `</td>
+            <td>` +
+            result.remarks +
             `</td>
 
                         </tr>
@@ -44,7 +47,7 @@ $(document).ready(function () {
       } else {
         html += `
                 <tr>
-                    <td colspan="5" class="text-center">No Data Found</td>
+                    <td colspan="5" class="text-center">No Pending Files</td>
                 </tr>
                 `;
       }

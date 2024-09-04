@@ -94,7 +94,7 @@
               <label for="officers">Put Up to</label>
               <select class="form-select mt-2" name="officers" required>
                 <option value="0" disabled selected>Select Officers</option>
-                <option value="K. Hamlet">Sr. EE(Works) - Engg K Hamlet</option>
+                <option value="K. Hamlet">Sr. EE(Works) - K Hamlet</option>
                 <option value="Lalnunthara(Lana)">
                   EE(S&I) - Pu P. Lalnunthara
                 </option>
@@ -107,15 +107,25 @@
 
             <div class="form-group mb-3">
               <label for="file">File Hming</label>
+              <select
+                class="form-select mt-2"
+                name="filename"
+                id="irrigationfiledisplay"
+                required
+              ></select>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="file">Remarks</label>
               <input
                 type="text"
                 class="form-control mt-2"
                 aria-describedby="emailHelp"
-                name="filename"
-                placeholder="Eng File ah nge i Putup Dawn"
-                required
+                name="remarks"
+                placeholder="Hetah hian i Duh chuan I file Putup dan i ziak thei"
               />
             </div>
+
             <button type="submit" class="btn btn-primary">PutUp</button>
           </form>
         </div>

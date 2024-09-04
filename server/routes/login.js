@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         req.session.name = uname;
         res.redirect("/user?uname=" + uname);
       } else {
-        res.send("Scheduler Password is Incorrect");
+        res.send(uname + " your Password is Incorrect");
       }
     });
   }

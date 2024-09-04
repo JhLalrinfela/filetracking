@@ -18,12 +18,10 @@ router.post("/update_pending", (req, res) => {
   var slno = req.body.slno;
   var uname = req.body.username;
   var reason = req.body.reason;
-  query = `update pending set reason='${reason}' where slno='${slno}'`;
-  con.query(query, (error, data) => {
-    if (error) throw error;
-    res.send("Put Up Successfully");
-    res.redirect("/user?uname=" + uname);
-  });
+  query = `update pending set reason=? where slno=?`;
+  con.query(query, [reason, slno]);
+  res.redirect("/user?uname=" + uname);
 });
+
 
 module.exports = router;

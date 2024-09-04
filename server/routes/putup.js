@@ -22,8 +22,17 @@ router.post("/complete", function (req, res, next) {
   var category = req.body.category;
   var officers = req.body.officers;
   var filename = req.body.filename;
-  query = `insert into complete(slno,subject,assign_person,type,category,putup_date,officers,filename) values(null,?,?,?,?,NOW(),?,?)`;
-  con.query(query, [subject, person, type, category, officers, filename]);
+  var remarks = req.body.remarks;
+  query = `insert into complete(slno,subject,assign_person,type,category,putup_date,officers,filename,remarks) values(null,?,?,?,?,NOW(),?,?,?)`;
+  con.query(query, [
+    subject,
+    person,
+    type,
+    category,
+    officers,
+    filename,
+    remarks,
+  ]);
   next();
 });
 
@@ -34,6 +43,15 @@ router.post("/complete", (req, res) => {
   con.query(query, (error, data) => {
     if (error) throw error;
     res.redirect("/user?uname=" + uname);
+  });
+});
+
+
+router.get("/irrigation_files", (req, res) => {
+  query = `select file_name from file_management order by file_name`;
+  con.query(query, (error, data) => {
+    if (error) throw error;
+    res.send(data);
   });
 });
 
