@@ -76,40 +76,18 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img
-                      src="images/register.png"
-                      class="img-fluid rounded-start"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">No. of Registered Users</h5>
-                      <p
-                        class="card-text text-danger"
-                        id="cardthree"
-                        style="font-size: 50px; text-align: center"
-                      ></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!--  -->
 
-            <div class="col-md-12">
-              <div class="card mb-3">
+            <div class="col-md-12" id="pendingtable">
+              <h3>Pending Files Nei te</h3>
+              <div class="card mb-3" style="height: 530px; overflow: scroll">
                 <div class="card-body">
-                  <h5 class="card-title">Pending Files Nei te</h5>
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Subject</th>
                         <th>Changtu</th>
-                        <th>Pending Hours</th>
+                        <th>Subject</th>
+                        <th>Hours</th>
                       </tr>
                     </thead>
                     <tbody id="pendingfileneite"></tbody>
@@ -123,7 +101,7 @@
         <!-- first column end -->
         <!-- Second column -->
         <div class="col-md-3">
-          <form id="userlogin" action="/login" method="POST">
+          <form id="userlogin" action="/login" method="POST" class="mb-3">
             <h2 class="m-3">User Login</h2>
             <div class="form-group mb-4">
               <select class="form-select" name="username" required>
@@ -152,6 +130,41 @@
               id="registerlink"
               >Register</a
             >
+          </form>
+
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="images/register.png"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">No. of Users</h5>
+                  <p
+                    class="card-text text-danger"
+                    id="cardthree"
+                    style="font-size: 30px; text-align: center"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="howmuch" class="mb-3">
+            <h4 class="m-3">See How Many Files User Have Complete</h4>
+            <div class="form-group mb-4">
+              <select class="form-select" id="selectuser">
+                <option value="0" disabled selected>Select User</option>
+                <% if(uname.length > 0) { uname.forEach(function(data) { %>
+                <option value="<%= data.uname %>"><%= data.uname %></option>
+                <%});}%>
+              </select>
+            </div>
+            <h1 id="displayhowmuch"></h1>
           </form>
         </div>
       </div>

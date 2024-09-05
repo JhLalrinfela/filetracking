@@ -2,10 +2,6 @@ body {
   background-color: rgb(221, 220, 230);
 }
 
-#table {
-  height: 400px;
-}
-
 #table > table th,
 td {
   font-size: 13px;

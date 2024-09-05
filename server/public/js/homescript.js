@@ -39,10 +39,10 @@ $(function () {
           html +=
             `<tr>
                 <td>` +
-            result.subject +
+            result.assign_person +
             `</td>
             <td>` +
-            result.assign_person +
+            result.subject +
             `</td>
             <td>` +
             result.pending_hour +
@@ -73,6 +73,22 @@ $(function () {
       success: function (data) {
         alert(data + " is successfully added");
         location.reload();
+      },
+    });
+  });
+
+  $("#selectuser").on("change", function () {
+    var name = $("#selectuser").val();
+    console.log(name);
+    $.ajax({
+      url: "/displayhowmuch",
+      method: "GET",
+      data: {
+        name: name,
+      },
+      success: function (data) {
+        var length = data.length;
+        $("#displayhowmuch").html(length);
       },
     });
   });

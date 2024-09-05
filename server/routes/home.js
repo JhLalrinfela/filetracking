@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const con = require("../database");
+const { error } = require("jquery");
 
 router.get("/", (req, res, next) => {
   var q = `select uname from user`;
@@ -47,6 +48,16 @@ router.get("/cardthree", (req, res) => {
 
 router.get("/pendingfileneite", async (req, res) => {
   query = `select slno,subject,assign_person,type,category,add_date,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
+  con.query(query, (error, data) => {
+    if (error) throw error;
+    res.send(data);
+  });
+});
+
+router.get("/displayhowmuch", (req, res) => {
+  var uname = req.query.name;
+  console.log(uname);
+  query = `select * from complete where assign_person='${uname}'`;
   con.query(query, (error, data) => {
     if (error) throw error;
     res.send(data);
