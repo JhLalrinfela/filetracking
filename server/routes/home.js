@@ -47,7 +47,7 @@ router.get("/cardthree", (req, res) => {
 });
 
 router.get("/pendingfileneite", async (req, res) => {
-  query = `select slno,subject,assign_person,type,category,add_date,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending`;
+  query = `select slno,subject,assign_person,type,category,add_date,reason,now() as today, TIMESTAMPDIFF(hour,add_date,now()) as pending_hour from pending order by category desc`;
   con.query(query, (error, data) => {
     if (error) throw error;
     res.send(data);
@@ -56,7 +56,6 @@ router.get("/pendingfileneite", async (req, res) => {
 
 router.get("/displayhowmuch", (req, res) => {
   var uname = req.query.name;
-  console.log(uname);
   query = `select * from complete where assign_person='${uname}'`;
   con.query(query, (error, data) => {
     if (error) throw error;

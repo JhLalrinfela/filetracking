@@ -5,7 +5,6 @@ $(document).ready(function () {
     url: "/complete",
     method: "GET",
     success: function (data) {
-      console.log(data);
       var length = data.length;
       let html = "";
       if (length > 0) {

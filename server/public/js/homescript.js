@@ -26,39 +26,8 @@ $(function () {
     },
   });
 
-  const results_body = document.querySelector("#pendingfileneite");
-  $.ajax({
-    url: "/pendingfileneite",
-    method: "GET",
-    success: function (data) {
-      console.log(data);
-      var length = data.length;
-      let html = "";
-      if (length > 0) {
-        data.forEach((result) => {
-          html +=
-            `<tr>
-                <td>` +
-            result.assign_person +
-            `</td>
-            <td>` +
-            result.subject +
-            `</td>
-            <td>` +
-            result.pending_hour +
-            `</td>
-            </tr>`;
-        });
-      } else {
-        html += `
-                  <tr>
-                      <td colspan="5" class="text-center">No Pending Files as of Now</td>
-                  </tr>
-                  `;
-      }
-      results_body.innerHTML = html;
-    },
-  });
+  PendingTableHome();
+  PendingTableScheduler();
 
   $("#registerbutton").on("click", function () {
     var uname = $("#uname").val();
@@ -79,7 +48,6 @@ $(function () {
 
   $("#selectuser").on("change", function () {
     var name = $("#selectuser").val();
-    console.log(name);
     $.ajax({
       url: "/displayhowmuch",
       method: "GET",
@@ -93,3 +61,132 @@ $(function () {
     });
   });
 });
+
+function PendingTableHome() {
+  $.ajax({
+    url: "/pendingfileneite",
+    method: "GET",
+    success: function (data) {
+      data.forEach(function (item) {
+        var row = appendTableRow(item);
+        $("#pendingfileneite").append(row);
+      });
+    },
+  });
+}
+
+function PendingTableScheduler() {
+  $.ajax({
+    url: "/pendingfileneite",
+    method: "GET",
+    success: function (data) {
+      data.forEach(function (item) {
+        var row = appendTableScheduler(item);
+        $("#display").append(row);
+      });
+    },
+    error: function (error) {
+      alert("Error Retrieving Data");
+    },
+  });
+}
+
+function appendTableRow(item) {
+  var row = "<tr>";
+  var td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.assign_person +
+    "</td>";
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.subject +
+    "</td>";
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.reason +
+    "</td>";
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.pending_hour) +
+    '">' +
+    item.pending_hour +
+    "</td>";
+
+  row = row + td + "</tr>";
+
+  //alert(row);
+
+  return row;
+}
+
+function appendTableScheduler(item) {
+  var row = "<tr>";
+  var td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.subject +
+    "</td>";
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.assign_person +
+    "</td>";
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.type +
+    "</td>";
+
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.category +
+    "</td>";
+
+  td =
+    td +
+    '<td style="background-color:' +
+    getColor(item.category) +
+    '">' +
+    item.add_date +
+    "</td>";
+
+  row = row + td + "</tr>";
+
+  //alert(row);
+
+  return row;
+}
+
+function getColor(category) {
+  var background = "white";
+
+  if (category == "Urgent") {
+    background = "red";
+  } else if (category > 168) {
+    //more than a week
+    background = "red";
+  } else {
+    background = "white";
+  }
+
+  return background;
+}

@@ -9,8 +9,18 @@ router.get("/user", (req, res) => {
     if (error) throw error;
     res.render("user", {
       title: "User",
+      uname: uname,
       data: data,
     });
+  });
+});
+
+router.get("/usercomplete", (req, res) => {
+  var uname = req.query.uname;
+  query = `select * from complete where assign_person='${uname}'`;
+  con.query(query, (error, data) => {
+    if (error) throw error;
+    res.send(data);
   });
 });
 

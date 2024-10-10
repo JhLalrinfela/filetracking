@@ -17,8 +17,8 @@ router.get("/assign_new", (req, res) => {
 router.post("/update_task", (req, res) => {
   var slno = req.body.slno;
   var assign_new = req.body.new_assigner;
-  query = `update pending set assign_person=?,add_date=? where slno=?`;
-  con.query(query, [assign_new, Now(), slno]);
+  query = `update pending set assign_person=?,add_date=Now() where slno=?`;
+  con.query(query, [assign_new, slno]);
   res.redirect("/admin");
 });
 

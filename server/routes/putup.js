@@ -46,13 +46,17 @@ router.post("/complete", (req, res) => {
   });
 });
 
-
 router.get("/irrigation_files", (req, res) => {
-  query = `select file_name from file_management order by file_name`;
+  var name = req.query.name;
+  query = `select file_name from file_management where name="${name}"`;
   con.query(query, (error, data) => {
     if (error) throw error;
     res.send(data);
   });
+});
+
+router.get("/search", (req, res) => {
+  query = `select file_name form file_management where file_name l`;
 });
 
 module.exports = router;

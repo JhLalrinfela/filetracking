@@ -23,13 +23,4 @@ router.post("/insertintopending", function (req, res, next) {
   res.send("Data added Successfully");
 });
 
-router.get("/pendingdisplay", async (req, res) => {
-  //var name = req.body.name;
-  q = `select * from pending`;
-  database.query(q, (error, data) => {
-    if (error) throw error;
-    res.send(data);
-  });
-});
-
 module.exports = router;
