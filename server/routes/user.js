@@ -17,7 +17,7 @@ router.get("/user", (req, res) => {
 
 router.get("/usercomplete", (req, res) => {
   var uname = req.query.uname;
-  query = `select * from complete where assign_person='${uname}'`;
+  query = `select * from complete where assign_person='${uname}' order by putup_date desc`;
   con.query(query, (error, data) => {
     if (error) throw error;
     res.send(data);

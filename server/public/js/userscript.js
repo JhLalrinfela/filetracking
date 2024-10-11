@@ -13,10 +13,7 @@ $(document).ready(function () {
           html +=
             `
                           <tr>
-                              <td>` +
-            result.slno +
-            `</td>
-                              <td>` +
+ <td>` +
             result.subject +
             `</td>
                               <td>` +
